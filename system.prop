@@ -15,6 +15,16 @@ ro.boot.realme.lockstate=0
 #Fixes fingerprint unlock delay
 persist.wm.enable_remote_keyguard_animation=0
 
+# Set the Bluetooth Class of Device
+# Service Field: 0x5A -> 90
+#    Bit 17: Networking
+#    Bit 19: Capturing
+#    Bit 20: Object Transfer
+#    Bit 22: Telephony
+# MAJOR_CLASS: 0x02 -> 2 (Phone)
+# MINOR_CLASS: 0x0C -> 12 (Smart Phone)
+bluetooth.device.class_of_device=90,2,12
+
 # Enable system-side generic bluetooth audio HAL
 persist.bluetooth.system_audio_hal.enabled=1
 # Set commonly-supported Bluetooth profiles to enabled
