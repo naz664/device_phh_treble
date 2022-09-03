@@ -249,6 +249,9 @@ include build/make/target/product/gsi_release.mk
 PRODUCT_COPY_FILES += \
 	device/phh/treble/files/com.android.deskclock_whitelist.xml:system/etc/sysconfig/com.android.deskclock_whitelist.xml
 
+PRODUCT_PACKAGES += \
+	android.hardware.vibrator@1.3-service.meizu
+
 # QCOM in-call audio fix as a standalone app
 PRODUCT_PACKAGES += \
     QcRilAm
