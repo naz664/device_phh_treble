@@ -1,2 +1,5 @@
+# Talk to bootloader HAL
+hal_client_domain(vold, hal_bootctl)
+
 allow vold system_data_file:lnk_file { unlink };
 allow mediaextractor sdcard_type:file read;
