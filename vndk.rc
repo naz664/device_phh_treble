@@ -52,14 +52,8 @@ on property:persist.sys.phh.disable_soundvolume_effect=*
 on property:ro.sf.lcd_density=*
     restart surfaceflinger
 
-on property:persist.sys.phh.disable_a2dp_offload=0
-    setprop persist.sys.phh.disable_a2dp_offload false
-
-on property:persist.sys.phh.disable_a2dp_offload=1
-    setprop persist.sys.phh.disable_a2dp_offload true
-
-on property:persist.sys.phh.disable_a2dp_offload=*
-    setprop persist.bluetooth.bluetooth_audio_hal.disabled ${persist.sys.phh.disable_a2dp_offload}
+on property:persist.bluetooth.system_audio_hal.enabled=*
+    exec u:r:phhsu_daemon:s0 root -- /system/bin/phh-prop-handler.sh "persist.bluetooth.system_audio_hal.enabled"
 
 on property:init.svc.ril-proxy=stopped && property:persist.sys.phh.restart_ril=true
     start ril-proxy
