@@ -19,7 +19,7 @@ PRODUCT_COPY_FILES += \
 
 #Use a more decent APN config
 PRODUCT_COPY_FILES += \
-	device/sample/etc/apns-full-conf.xml:system/etc/apns-conf.xml
+#	device/sample/etc/apns-full-conf.xml:system/etc/apns-conf.xml
 
 SYSTEM_EXT_PRIVATE_SEPOLICY_DIRS += device/phh/treble/sepolicy
 PRODUCT_PACKAGE_OVERLAYS += device/phh/treble/overlay
