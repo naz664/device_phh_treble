@@ -50,6 +50,7 @@ PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
 PRODUCT_COPY_FILES += \
 	device/phh/treble/vndk-detect:system/bin/vndk-detect \
 	device/phh/treble/vndk.rc:system/etc/init/vndk.rc \
+        device/phh/treble/logger.rc:system/etc/init/logger.rc \
 
 #USB Audio
 PRODUCT_COPY_FILES += \
