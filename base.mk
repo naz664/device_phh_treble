@@ -245,6 +245,9 @@ PRODUCT_COPY_FILES += \
 	frameworks/av/services/audiopolicy/config/a2dp_audio_policy_configuration_7_0.xml:system/etc/a2dp_audio_policy_configuration_7_0.xml \
 	frameworks/av/services/audiopolicy/config/a2dp_audio_policy_configuration.xml:system/etc/a2dp_audio_policy_configuration.xml \
 
+PRODUCT_PACKAGES += \
+	android.hardware.vibrator@1.3-service.meizu
+
 include build/make/target/product/gsi_release.mk
 
 # Protect deskclock from power save
