@@ -44,7 +44,7 @@ endif
 #Pixel Experience gapps
 ifneq ($(wildcard vendor/gapps),)
 IS_PHONE := true
-$(call inherit-product,vendor/gapps/config.mk)
+$(call inherit-product,vendor/gapps/common/common-vendor.mk)
 PRODUCT_PACKAGES += \
        phh-overrides \
 	   com.simplemobiletools.gallery.pro \
