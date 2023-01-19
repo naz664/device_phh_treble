@@ -1,5 +1,6 @@
 #Access to fake keymaster SPL/Android version props
 get_prop(hal_keymaster, default_prop);
+get_prop(tee, default_prop);
 
 get_prop(hal_keymaster, system_prop);
 
