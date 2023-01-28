@@ -17,3 +17,6 @@ allow init sysfs_vnswap:{file lnk_file } r_file_perms;
 
 allow kernel { mac_perms_file hwservice_contexts_file property_contexts_file service_contexts_file seapp_contexts_file file_contexts_file }:file relabelto;
 allow kernel tmpfs:file relabelfrom;
+
+type sysfs_ski_display_writable, file_type;
+allow platform_app sysfs_ski_display_writable:file r_file_perms;
