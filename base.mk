@@ -44,7 +44,7 @@ PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
 #Huawei HiSuite (also other OEM custom programs I guess) it's of no use in AOSP builds
 PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
 	persist.sys.usb.config=adb \
-	ro.cust.cdrom=/dev/null	
+	ro.cust.cdrom=/dev/null
 
 #VNDK config files
 PRODUCT_COPY_FILES += \
@@ -256,3 +256,7 @@ PRODUCT_COPY_FILES += \
 # Two-pane layout in Settings
 PRODUCT_PACKAGES += \
     androidx.window.extensions
+
+# QCOM in-call audio fix as a standalone app
+PRODUCT_PACKAGES += \
+    QcRilAm
