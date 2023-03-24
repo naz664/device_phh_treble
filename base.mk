@@ -252,6 +252,10 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
 	android.hardware.vibrator@1.3-service.meizu
 
+# Two-pane layout in Settings
+PRODUCT_PACKAGES += \
+    androidx.window.extensions
+
 # QCOM in-call audio fix as a standalone app
 PRODUCT_PACKAGES += \
     QcRilAm
