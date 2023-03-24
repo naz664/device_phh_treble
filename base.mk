@@ -252,3 +252,7 @@ include build/make/target/product/gsi_release.mk
 # Protect deskclock from power save
 PRODUCT_COPY_FILES += \
 	device/phh/treble/files/com.android.deskclock_whitelist.xml:system/etc/sysconfig/com.android.deskclock_whitelist.xml
+
+# Two-pane layout in Settings
+PRODUCT_PACKAGES += \
+    androidx.window.extensions
