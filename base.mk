@@ -40,11 +40,11 @@ PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
 	ro.adb.secure=0 \
 	ro.logd.auditd=true \
 	ro.logd.kernel=true \
-	
+
 #Huawei HiSuite (also other OEM custom programs I guess) it's of no use in AOSP builds
 PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
 	persist.sys.usb.config=adb \
-	ro.cust.cdrom=/dev/null	
+	ro.cust.cdrom=/dev/null
 
 #VNDK config files
 PRODUCT_COPY_FILES += \
@@ -249,3 +249,7 @@ include build/make/target/product/gsi_release.mk
 # Protect deskclock from power save
 PRODUCT_COPY_FILES += \
 	device/phh/treble/files/com.android.deskclock_whitelist.xml:system/etc/sysconfig/com.android.deskclock_whitelist.xml
+
+# QCOM in-call audio fix as a standalone app
+PRODUCT_PACKAGES += \
+    QcRilAm

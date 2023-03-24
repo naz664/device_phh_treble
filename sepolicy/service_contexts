@@ -11,3 +11,6 @@ mtkIms                                    u:object_r:radio_service:s0
 
 # Audio AIDL interface
 android.hardware.bluetooth.audio.IBluetoothAudioProviderFactory/sysbta    u:object_r:hal_audio_service:s0
+
+# QcRilAm
+me.phh.qcrilam                                                            u:object_r:qcrilam_service:s0
