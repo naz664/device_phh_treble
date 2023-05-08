@@ -15,6 +15,9 @@ ro.boot.realme.lockstate=0
 #Fixes fingerprint unlock delay
 persist.wm.enable_remote_keyguard_animation=0
 
+# Enable support of one-handed mode
+ro.support_one_handed_mode=true
+
 # Set the Bluetooth Class of Device
 # Service Field: 0x5A -> 90
 #    Bit 17: Networking
