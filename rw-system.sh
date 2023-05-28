@@ -84,6 +84,10 @@ fixSPL() {
 	if [ -z "$Arelease" ] || [ -z "$spl" ];then
 		return 0
 	fi
+    # Some devices will want true vbmeta_state and verifiedbootstate
+    # Setup those properties redirect for "keymaster" prop redirects
+    setprop ro.keymaster.xxx.vbmeta_state unlocked
+    setprop ro.keymaster.xxx.verifiedbootstate orange
 
     # Found on Cubot Pocket 3: trustkernel work only on stock model name or AOSP GSI model name
     if [ -f /vendor/bin/hw/android.hardware.keymaster@4.1-service.trustkernel ] && [ -f /proc/tkcore/tkcore_log ];then
