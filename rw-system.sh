@@ -1127,3 +1127,9 @@ mount -o bind /mnt/phh/empty_dir /vendor/app/qti-logkit-lite
 
 # Redirect vendor props for QCOM hwcomposer
 setprop debug.phh.props.omposer-service vendor
+
+# On those Unisoc chips, Android's bluetooth stack will try to send a LE_EXTENDED_SCAN command, which isn't actually supported
+# The support of that command inherits from a "le vendor version". Force this at 0 to disable the use of that command
+if getprop ro.vendor.gnsschip |grep -q marlin3lite;then
+    setprop persist.sys.bt.max_vendor_cap 0
+fi
