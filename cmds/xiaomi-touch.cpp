@@ -42,7 +42,10 @@ int main(int argc, char **argv) {
     if (mode < 0 || mode > 20) return -1;
     if (enabled != 0 && enabled != 1) return -1;
     int fd = open(TOUCH_DEV_PATH, O_RDWR);
+    // Xiaomi has two competing ABIs, no idea how to detect it
     int arg[3] = {TOUCH_ID, mode, enabled};
+    int arg2[3] = {mode, enabled};
     ioctl(fd, TOUCH_IOC_SETMODE, &arg);
+    ioctl(fd, TOUCH_IOC_SETMODE, &arg2);
     close(fd);
 }
