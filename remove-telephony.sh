@@ -2,7 +2,7 @@
 
 mount -o remount,rw /
 mount -o remount,rw /system
-remount
+remount system
 
 rm -Rf /system/priv-app/TeleService
 mount -o remount,ro /
