@@ -260,3 +260,6 @@ PRODUCT_PACKAGES += \
 # QCOM in-call audio fix as a standalone app
 PRODUCT_PACKAGES += \
     QcRilAm
+
+PRODUCT_PACKAGES += \
+	slsi-booted
