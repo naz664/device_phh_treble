@@ -266,3 +266,15 @@ cc_binary {
 		"libhidlbase",
 	],
 }
+
+cc_binary {
+	name: "slsi-booted",
+	srcs: [
+		"slsi-booted.cpp",
+	],
+	shared_libs: [
+		"vendor.samsung_slsi.hardware.ExynosHWCServiceTW@1.0",
+		"libutils",
+		"libhidlbase",
+	],
+}
