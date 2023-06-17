@@ -6,5 +6,6 @@ using ::android::sp;
 
 int main(int argc, char **argv) {
 	auto svc = IExynosHWCServiceTW::getService();
-    svc->setbootfinished();
+	if(svc != nullptr)
+        svc->setbootfinished();
 }
