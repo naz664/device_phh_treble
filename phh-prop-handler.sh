@@ -70,6 +70,17 @@ restartAudio() {
     setprop ctl.restart audio-hal-2-0
 }
 
+if [ "$1" == "persist.sys.phh.asus.dt2w" ]; then
+    if [[ "$prop_value" != "0" && "$prop_value" != "1" ]]; then
+        exit 1
+    fi
+    if [[ "$prop_value" == 1 ]];then
+        setprop persist.asus.dclick 1
+    else
+        setprop persist.asus.dclick 0
+    fi
+fi
+
 if [ "$1" == "persist.sys.phh.xiaomi.dt2w" ]; then
     if [[ "$prop_value" != "0" && "$prop_value" != "1" ]]; then
         exit 1
