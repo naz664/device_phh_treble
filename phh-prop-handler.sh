@@ -81,6 +81,10 @@ if [ "$1" == "persist.sys.phh.asus.dt2w" ]; then
     fi
 fi
 
+if [ "$1" == "persist.sys.phh.asus.usb.port" ]; then
+        setprop persist.vendor.usb.controller.default "$prop_value"
+fi
+
 if [ "$1" == "persist.sys.phh.xiaomi.dt2w" ]; then
     if [[ "$prop_value" != "0" && "$prop_value" != "1" ]]; then
         exit 1
