@@ -281,3 +281,15 @@ cc_binary {
 		"slsi-booted.rc"
 	],
 }
+
+cc_binary {
+	name: "mtk-power",
+	srcs: [
+		"mtk-power.cpp",
+	],
+	shared_libs: [
+		"vendor.mediatek.hardware.mtkpower@1.0",
+		"libutils",
+		"libhidlbase",
+	],
+}
