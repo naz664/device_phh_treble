@@ -331,19 +331,21 @@ if [ "$(getprop ro.product.vendor.manufacturer)" = motorola ] && getprop ro.vend
     setprop persist.sys.overlay.devinputjack true
 fi
 
-if mount -o remount,rw /system; then
-    resize2fs "$(grep ' /system ' /proc/mounts | cut -d ' ' -f 1)" || true
-else
-    mount -o remount,rw /
-    major="$(stat -c '%D' /.|sed -E 's/^([0-9a-f]+)([0-9a-f]{2})$/\1/g')"
-    minor="$(stat -c '%D' /.|sed -E 's/^([0-9a-f]+)([0-9a-f]{2})$/\2/g')"
-    mknod /dev/tmp-phh b $((0x$major)) $((0x$minor))
-    blockdev --setrw /dev/tmp-phh
-    resize2fs /dev/root || true
-    resize2fs /dev/tmp-phh || true
+if ! getprop ro.vendor.build.fingerprint |grep samsung/;then
+    if mount -o remount,rw /system; then
+        resize2fs "$(grep ' /system ' /proc/mounts | cut -d ' ' -f 1)" || true
+    else
+        mount -o remount,rw /
+        major="$(stat -c '%D' /.|sed -E 's/^([0-9a-f]+)([0-9a-f]{2})$/\1/g')"
+        minor="$(stat -c '%D' /.|sed -E 's/^([0-9a-f]+)([0-9a-f]{2})$/\2/g')"
+        mknod /dev/tmp-phh b $((0x$major)) $((0x$minor))
+        blockdev --setrw /dev/tmp-phh
+        resize2fs /dev/root || true
+        resize2fs /dev/tmp-phh || true
+    fi
+    mount -o remount,ro /system || true
+    mount -o remount,ro / || true
 fi
-mount -o remount,ro /system || true
-mount -o remount,ro / || true
 
 for part in /dev/block/bootdevice/by-name/oppodycnvbk  /dev/block/platform/bootdevice/by-name/nvdata;do
     if [ -b "$part" ];then
