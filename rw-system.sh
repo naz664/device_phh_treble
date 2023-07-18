@@ -160,6 +160,7 @@ changeKeylayout() {
 
     if getprop ro.vendor.build.fingerprint | grep -iq \
         -e poco/ -e POCO/ -e redmi/ -e xiaomi/ ; then
+        setprop persist.sys.phh.evgrab 'uinput-egis;uinput-goodix;uinput-fpc'
         if [ ! -f /mnt/phh/keylayout/uinput-goodix.kl ]; then
           cp /system/phh/empty /mnt/phh/keylayout/uinput-goodix.kl
           chmod 0644 /mnt/phh/keylayout/uinput-goodix.kl

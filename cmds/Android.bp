@@ -293,3 +293,16 @@ cc_binary {
 		"libhidlbase",
 	],
 }
+
+cc_binary {
+	name: "evgrab",
+	srcs: [
+		"evgrab.cpp",
+	],
+	shared_libs: [
+        "libbase",
+    ],
+	init_rc: [
+		"evgrab.rc"
+	],
+}
