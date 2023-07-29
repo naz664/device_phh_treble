@@ -40,6 +40,9 @@ on property:persist.sys.phh.oppo.usbotg=*
 on property:persist.sys.phh.xiaomi.dt2w=*
     exec u:r:phhsu_daemon:s0 root -- /system/bin/phh-prop-handler.sh "persist.sys.phh.xiaomi.dt2w"
 
+on property:persist.sys.phh.allow_binder_thread_on_incoming_calls=*
+    exec u:r:phhsu_daemon:s0 root -- /system/bin/phh-prop-handler.sh "persist.sys.phh.allow_binder_thread_on_incoming_calls"
+
 on property:persist.sys.phh.disable_audio_effects=*
     exec u:r:phhsu_daemon:s0 root -- /system/bin/phh-prop-handler.sh "persist.sys.phh.disable_audio_effects"
 

@@ -127,6 +127,19 @@ if [ "$1" == "persist.sys.phh.oppo.usbotg" ]; then
     exit
 fi
 
+if [ "$1" == "persist.sys.phh.allow_binder_thread_on_incoming_calls" ]; then
+    if [[ "$prop_value" != "0" && "$prop_value" != "1" ]]; then
+        exit 1
+    fi
+
+    if [[ "$prop_value" == 1 ]];then
+        resetprop_phh ro.telephony.block_binder_thread_on_incoming_calls false
+    else
+        resetprop_phh --delete ro.telephony.block_binder_thread_on_incoming_calls
+    fi
+    exit
+fi
+
 if [ "$1" == "persist.sys.phh.disable_audio_effects" ];then
     if [[ "$prop_value" != "0" && "$prop_value" != "1" ]]; then
         exit 1
