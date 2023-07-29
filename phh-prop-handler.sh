@@ -79,10 +79,12 @@ if [ "$1" == "persist.sys.phh.asus.dt2w" ]; then
     else
         setprop persist.asus.dclick 0
     fi
+    exit
 fi
 
 if [ "$1" == "persist.sys.phh.asus.usb.port" ]; then
         setprop persist.vendor.usb.controller.default "$prop_value"
+    exit
 fi
 
 if [ "$1" == "persist.sys.phh.xiaomi.dt2w" ]; then
