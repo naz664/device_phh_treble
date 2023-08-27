@@ -232,11 +232,20 @@ if [ "$1" == "persist.sys.phh.disable_soundvolume_effect" ];then
 fi
 
 if [ "$1" == "persist.bluetooth.system_audio_hal.enabled" ]; then
-    if [[ "$prop_value" != "0" && "$prop_value" != "1" ]]; then
+    # Migrate from 0/1 to false/true first
+    if [[ "$prop_value" == "0" ]]; then
+        setprop persist.bluetooth.system_audio_hal.enabled false
+        exit 1
+    elif [[ "$prop_value" == "1" ]]; then
+        setprop persist.bluetooth.system_audio_hal.enabled true
         exit 1
     fi
 
-    if [[ "$prop_value" == 1 ]]; then
+    if [[ "$prop_value" != "false" && "$prop_value" != "true" ]]; then
+        exit 1
+    fi
+
+    if [[ "$prop_value" == "true" ]]; then
         setprop persist.bluetooth.bluetooth_audio_hal.disabled false
         setprop persist.bluetooth.a2dp_offload.disabled true
         resetprop_phh ro.bluetooth.a2dp_offload.supported false
