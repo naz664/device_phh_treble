@@ -52,3 +52,7 @@ vendor.usb.use_ffs_mtp=1
 
 # Wireless Display
 persist.debug.wfd.enable=1
+
+# Override media volume steps
+ro.config.media_vol_steps=25
+ro.config.media_vol_default=8
