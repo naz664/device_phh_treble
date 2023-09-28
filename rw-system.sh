@@ -1154,3 +1154,15 @@ if getprop ro.boot.hardware.sku | grep -q -e fuxi -e nuwa -e ishtar; then
 
     setprop persist.phh.xiaomi.fod.enrollment.id 4
 fi
+
+if getprop ro.boot.hardware.sku | grep -q -e taoyao -e cupid -e daumier; then
+    setprop ro.surface_flinger.set_idle_timer_ms 1000
+
+    setprop ro.surface_flinger.set_touch_timer_ms 800
+
+    setprop ro.surface_flinger.set_display_power_timer_ms 4000
+
+    setprop debug.sf.frame_rate_multiple_threshold 120
+
+    setprop persist.phh.xiaomi.fod.enrollment.id 10
+fi
