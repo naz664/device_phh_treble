@@ -1166,3 +1166,9 @@ if getprop ro.boot.hardware.sku | grep -q -e taoyao -e cupid -e daumier; then
 
     setprop persist.phh.xiaomi.fod.enrollment.id 10
 fi
+
+# Fixes Vibrator on TECNO POVA 4 Pro
+
+if getprop ro.product.vendor.device | grep -q -e TECNO-LG8n; then
+    chown -R system:system /sys/class/leds/vibrator_single/
+fi
