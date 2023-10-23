@@ -85,6 +85,9 @@ on property:sys.phh.uninstall-ota=true
 on property:ro.vendor.radio.default_network=*
     setprop ro.telephony.default_network ${ro.vendor.radio.default_network}
 
+on property:persist.sys.phh.force_display_5g=1
+    resetprop_phh ro.telephony.default_network 33,33
+
 # Set watchdog timer to 30 seconds and pet it every 10 seconds to get a 20 second margin
 service watchdogd-gsi /system/bin/watchdogd 10 20
     class core
