@@ -76,14 +76,17 @@ fixSPL() {
     img="$(find /dev/block -type l -iname kernel"$(getprop ro.boot.slot_suffix)" | grep by-name | head -n 1)"
     [ -z "$img" ] && img="$(find /dev/block -type l -iname boot"$(getprop ro.boot.slot_suffix)" | grep by-name | head -n 1)"
     if [ -n "$img" ]; then
-        #Rewrite SPL/Android version if needed
-        Arelease="$(getSPL "$img" android)"
-        spl="$(getSPL "$img" spl)"
-        setprop ro.keymaster.xxx.release "$Arelease"
-        setprop ro.keymaster.xxx.security_patch "$spl"
-	if [ -z "$Arelease" ] || [ -z "$spl" ];then
-		return 0
-	fi
+    #Rewrite SPL/Android version if needed
+    # Read Android version from vbmeta (often trustkernel's root of trust)
+    Arelease="$(strings -n 2 /dev/block/by-name/vbmeta* | grep -A1 com.android.build.system.os_version | grep -E '^[0-9]+$' | sort -n | head -n1)"
+    # Otherwise read it from boot.img
+    [ -z "$Arelease" ] && Arelease="$(getSPL "$img" android)"
+    spl="$(getSPL "$img" spl)"
+    setprop ro.keymaster.xxx.release "${Arelease}"
+    setprop ro.keymaster.xxx.security_patch "$spl"
+    if [ -z "$Arelease" ] || [ -z "$spl" ];then
+        return 0
+    fi
     # Some devices will want true vbmeta_state and verifiedbootstate
     # Setup those properties redirect for "keymaster" prop redirects
     setprop ro.keymaster.xxx.vbmeta_state unlocked
